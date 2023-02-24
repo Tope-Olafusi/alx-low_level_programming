@@ -1,20 +1,22 @@
 #include "main.h"
 /**
- * main - print_putchar
- * is written bt wbah
- * Return: 0
+ * main - main function
+ * _putchar: prints putchar alphabets
+ * Return: always 0
  */
+
+
 
 int main(void)
 {
--putchar('-');
--putchar('p');
--putchar('u');
--putchar('t');
--putchar('c');
--putchar('h');
--putchar('a');
--putchar('r');
--putchar('\n');
-return (0);
+	char alph[] = "_putchar";
+	int a;
+
+	for (a = 0; a < 8; a++)
+	{
+		_putchar(alph[a]);
+	}
+	_putchar('\n');
+
+	return (0);
 }
