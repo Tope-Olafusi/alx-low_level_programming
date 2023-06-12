@@ -1,36 +1,52 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 /**
- * @argc: number of command line arguments.
- * @argv: array that contains the program command line arguments.
- * Return: 0 - success.
+ * main - entry point
+ *
+ * @argc: integer, length of @argv
+ *
+ * @argv: one-dimensional array of strings, arguments of this program
+ *
+ * Return: 0, success
  */
+
 int main(int argc, char *argv[])
 {
-	int cents, ncoins = 0;
+	int result, amount, cent;
 
-	if (argc == 1 || argc > 2)
+	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
 
-	cents = atoi(argv[1]);
+	result = 0;
+	amount  = atoi(argv[1]);
 
-	while (cents > 0)
+	if (amount < 0)
 	{
-		if (cents >= 25)
-			cents -= 25;
-		else if (cents >= 10)
-			cents -= 10;
-		else if (cents >= 5)
-			cents -= 5;
-		else if (cents >= 2)
-			cents -= 2;
-		else if (cents >= 1)
-			cents -= 1;
-		ncoins += 1;
+		printf("0\n");
+		return (0);
 	}
-	printf("%d\n", ncoins);
+
+	while (amount)
+	{
+		if (amount >= 25)
+			cent = 25;
+		else if (amount >= 10)
+			cent = 10;
+		else if (amount >= 5)
+			cent = 5;
+		else if (amount >= 2)
+			cent = 2;
+		else
+			cent = 1;
+
+		result += amount / cent;
+		amount %= cent;
+	}
+
+	printf("%d\n", result);
 	return (0);
 }
