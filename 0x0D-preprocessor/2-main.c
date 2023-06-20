@@ -1,7 +1,10 @@
 #include <stdio.h>
-/*This program print out the name of the folder it was compiled from using the predefined macro in c language*/
+/**
+ * main - prints name of compilation file with new line
+ * Return: 0
+ **/
 int main(void)
 {
-	printf("Compiled from file: %s\n", __BASE_FILE__);
+	printf("%s\n", __BASE_FILE__);
 	return (0);
 }
